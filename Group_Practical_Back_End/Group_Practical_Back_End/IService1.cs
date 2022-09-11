@@ -22,5 +22,32 @@ namespace Group_Practical_Back_End
 
         [OperationContract]
         int getUserID(string username, string password);
+
+        [OperationContract]
+        Product getProductByID(int Id);
+
+        [OperationContract]
+        Seller getSellerByID(int Id);
+
+        [OperationContract]
+        List<Product> getProducts();
+
+        [OperationContract]
+        bool addProduct(Product product);
+
+        [OperationContract]
+        bool editProduct(Product product);
+
+        [OperationContract]
+        bool addSeller(Seller seller);
+
+        [OperationContract]
+        bool searchSeller(string username, string password);
+
+        [OperationContract]
+        bool addToCart(int UserId, int productId,int add);
+
+        [OperationContract]
+        bool removeFromCart(int UserId, int productId);
     }
 }

@@ -23,6 +23,20 @@ namespace Group_Practical_Front_End
                 log.Visible = false;
                 sign.Visible = false;
                 sell.Visible = false;
+
+                // get items on users wish list
+                if(user.Wish_List!=null)
+                {
+                    string[] tokens = user.Wish_List.Split(' ');
+                    wish_list_items.InnerText = Convert.ToString(tokens.Length);
+                }
+
+                // get items on users Cart list
+                if(user.Cart_Items!=null)
+                {
+                    string[] tokens = user.Cart_Items.Split(' ');
+                    cart_items.InnerText = Convert.ToString(tokens.Length-1);
+                }
             }
             else
             {

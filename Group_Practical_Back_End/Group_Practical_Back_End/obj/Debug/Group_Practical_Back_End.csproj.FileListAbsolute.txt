@@ -5,10 +5,3 @@ C:\Users\thula\Documents\Informatics\Informatics 2\2B\Projects\Group_Practical_B
 C:\Users\thula\Documents\Informatics\Informatics 2\2B\Projects\Group_Practical_Back_End\Group_Practical_Back_End\obj\Debug\Group_Practical_Back_End.csproj.CoreCompileInputs.cache
 C:\Users\thula\Documents\Informatics\Informatics 2\2B\Projects\Group_Practical_Back_End\Group_Practical_Back_End\obj\Debug\Group_Practical_Back_End.dll
 C:\Users\thula\Documents\Informatics\Informatics 2\2B\Projects\Group_Practical_Back_End\Group_Practical_Back_End\obj\Debug\Group_Practical_Back_End.pdb
-G:\Group Project\Group Project\Group_Practical_Back_End\Group_Practical_Back_End\bin\Group_Practical_Back_End.dll.config
-G:\Group Project\Group Project\Group_Practical_Back_End\Group_Practical_Back_End\bin\Group_Practical_Back_End.dll
-G:\Group Project\Group Project\Group_Practical_Back_End\Group_Practical_Back_End\bin\Group_Practical_Back_End.pdb
-G:\Group Project\Group Project\Group_Practical_Back_End\Group_Practical_Back_End\obj\Debug\Group_Practical_Back_End.csproj.AssemblyReference.cache
-G:\Group Project\Group Project\Group_Practical_Back_End\Group_Practical_Back_End\obj\Debug\Group_Practical_Back_End.csproj.CoreCompileInputs.cache
-G:\Group Project\Group Project\Group_Practical_Back_End\Group_Practical_Back_End\obj\Debug\Group_Practical_Back_End.dll
-G:\Group Project\Group Project\Group_Practical_Back_End\Group_Practical_Back_End\obj\Debug\Group_Practical_Back_End.pdb
