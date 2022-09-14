@@ -36,7 +36,7 @@ namespace Group_Practical_Back_End
         bool addProduct(Product product);
 
         [OperationContract]
-        bool editProduct(Product product);
+        bool editProduct(string username, string password, Product product);
 
         [OperationContract]
         bool addSeller(Seller seller);
