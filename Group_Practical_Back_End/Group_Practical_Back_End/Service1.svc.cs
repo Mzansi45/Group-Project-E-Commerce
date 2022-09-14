@@ -123,7 +123,7 @@ namespace Group_Practical_Back_End
             return true;
         }
 
-        public bool editProduct(Product product)
+        public bool editProduct(string username, string password, Product product)
         {
             throw new NotImplementedException();
         }
