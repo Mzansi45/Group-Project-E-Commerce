@@ -36,7 +36,11 @@ namespace Group_Practical_Back_End
         bool addProduct(Product product);
 
         [OperationContract]
+<<<<<<< HEAD
         bool editProduct(Product product, string userName, string passWord);
+=======
+        bool editProduct(string username, string password, Product product);
+>>>>>>> 3991052236d284178aae8b68a1d923ea8e127e0b
 
         [OperationContract]
         bool addSeller(Seller seller);

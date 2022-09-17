@@ -165,10 +165,14 @@ namespace Group_Practical_Back_End
             return true;
         }
 
+<<<<<<< HEAD
 
         // // @JS PHALA == USED WHEN ADDING THE PRODUCT
         // Searches whether the product Exists in the database
         public bool searchProduct(string productName, string productCategory, string productManufacturer)
+=======
+        public bool editProduct(string username, string password, Product product)
+>>>>>>> 3991052236d284178aae8b68a1d923ea8e127e0b
         {
             dynamic input = (from prod in db.Products
                              where (prod.Product_Name.Equals(productName)
