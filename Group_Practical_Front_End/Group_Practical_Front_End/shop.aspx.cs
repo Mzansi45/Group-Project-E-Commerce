@@ -331,11 +331,11 @@ namespace Group_Practical_Front_End
             productsSection.InnerHtml += "<div class='d - flex align-items-center justify-content-center mt-2'>";
             if(prod.Discount_Price !=null)
             {
-                productsSection.InnerHtml += "<h5>R" + String.Format("{0:0.##}", prod.Discount_Price) + "</h5><h6 class='text-muted ml-2'>R<del>" + String.Format("{0:0.##}", prod.Product_Price) + "</</del></h6></div>";
+                productsSection.InnerHtml += "<a href='single.aspx?Id=" + prod.Id + "'>< h5>R" + String.Format("{0:0.##}", prod.Discount_Price) + "</h5><h6 class='text-muted ml-2'>R<del>" + String.Format("{0:0.##}", prod.Product_Price) + "</</del></h6></div></a>";
             }
             else
             {
-                productsSection.InnerHtml += "<h5>R" + String.Format("{0:0.##}", prod.Product_Price) + "</h5></div>";
+                productsSection.InnerHtml += "<a href='single.aspx?Id=" + prod.Id + "'><h5>R" + String.Format("{0:0.##}", prod.Product_Price) + "</h5></div></a>";
             }
             productsSection.InnerHtml += "<div class='d-flex align-items-center justify-content-center mb-1'>";
             productsSection.InnerHtml += "<small class='fa fa-star text-primary mr-1'></small>";

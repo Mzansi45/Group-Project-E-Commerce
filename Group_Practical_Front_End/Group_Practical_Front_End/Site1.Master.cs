@@ -18,14 +18,18 @@ namespace Group_Practical_Front_End
             if (Session["LoggedIn"] != null)
             {
                 user = sv.getUserById(Convert.ToInt32(Session["UserID"].ToString()));
+
                 account.InnerText = user.First_Name;
                 acc.Visible = true;
                 log.Visible = false;
                 sign.Visible = false;
                 sell.Visible = false;
+                Pages.Visible = true;
+                wishListCartdiv.Visible = true;
+
 
                 // get items on users wish list
-                if(user.Wish_List!=null)
+                if (user.Wish_List!=null)
                 {
                     string[] tokens = user.Wish_List.Split(' ');
                     wish_list_items.InnerText = Convert.ToString(tokens.Length);

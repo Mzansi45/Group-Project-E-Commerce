@@ -19,10 +19,13 @@ namespace Group_Practical_Front_End
         protected void login_Click(object sender,EventArgs e)
         {
             string HashedPassword = HashPass.Secrecy.HashPassword(password.Value);
+
             if(sv.searchUser(username.Value,HashedPassword))
             {
+
                 Session["LoggedIn"] = true;
                 Session["UserID"] = sv.getUserID(username.Value, HashedPassword);
+
                 Response.Redirect("home.aspx");
             }
             else

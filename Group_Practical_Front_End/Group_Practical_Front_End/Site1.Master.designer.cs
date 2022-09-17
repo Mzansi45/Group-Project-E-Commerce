@@ -78,6 +78,33 @@ namespace Group_Practical_Front_End
         protected global::System.Web.UI.WebControls.Button sell;
 
         /// <summary>
+        /// Manager control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Manager;
+
+        /// <summary>
+        /// Pages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Pages;
+
+        /// <summary>
+        /// wishListCartdiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl wishListCartdiv;
+
+        /// <summary>
         /// wish_list_items control.
         /// </summary>
         /// <remarks>

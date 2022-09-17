@@ -13,19 +13,61 @@ namespace Group_Practical_Back_End
     {
         DataClasses1DataContext db = new DataClasses1DataContext();
 
+        // @JS PHALA === FRONT-END PAGE TO BE DONE OR UPDATE THE REGISTER PAGE
         public bool addProduct(Product product)
         {
-            throw new NotImplementedException();
+            
+            // use search function to check if Product exist
+            if (searchProduct(product.Product_Name, product.Category, product.Manufacturer))
+            {
+                return false;
+            }
+
+            //create Product 
+            Product prod = product;
+
+            // adding Product to database
+            db.Products.InsertOnSubmit(prod);
+            db.SubmitChanges(); // submitting changes after adding Product
+            
+            return true;
         }
 
+
+        // @JS PHALA === FRONT-END PAGE TO BE DONE OR UPDATE THE(SHOULD ADD WHO IS ABLE TO ADD THE SELLER == ONLY THE MANAGER)
         public bool addSeller(Seller seller)
         {
-            throw new NotImplementedException();
+
+            // use search function to check if seller exist
+            if (searchSeller(seller.Username, seller.Password))
+            {
+                return false;
+            }
+
+            //create seller 
+            Seller sellerUser = new Seller();
+
+            sellerUser.S_Name = seller.S_Name;
+            sellerUser.S_Surname = seller.S_Surname;
+            sellerUser.Username = seller.Username;
+            sellerUser.Email = seller.Email;
+            sellerUser.Phone = seller.Phone;
+            sellerUser.Password = seller.Password;
+            sellerUser.Identity_Number = seller.Identity_Number;
+
+            // adding seller to database
+            db.Sellers.InsertOnSubmit(sellerUser);
+            db.SubmitChanges(); // submitting changes after adding seller
+
+            return true;
         }
 
+        // @ T GULUBE
         public bool addToCart(int UserId, int productId,int add)
         {
-            var dbUser = (from u in db.Users where u.Id == UserId select u).FirstOrDefault();
+            var dbUser = (from u in db.Users 
+                          where u.Id == UserId 
+                          select u).FirstOrDefault();
 
             User user = new User();
             user = getUserById(UserId);
@@ -123,20 +165,97 @@ namespace Group_Practical_Back_End
             return true;
         }
 
-        public bool editProduct(Product product)
+
+        // // @JS PHALA == USED WHEN ADDING THE PRODUCT
+        // Searches whether the product Exists in the database
+        public bool searchProduct(string productName, string productCategory, string productManufacturer)
         {
-            throw new NotImplementedException();
+            dynamic input = (from prod in db.Products
+                             where (prod.Product_Name.Equals(productName)
+                             && prod.Category.Equals(productCategory) && prod.Manufacturer.Equals(productManufacturer))
+                             select prod);
+
+            //instance of the product
+            Product product = new Product();
+
+            // helps assign database information to the instance
+            foreach (dynamic produc in input)
+            {
+                product = produc;
+            }
+
+            // this statement return true if the data for database matches the requested product
+            if (product.Product_Name != null)
+            {
+                if (product.Product_Name.Equals(productName) &&
+                    product.Category.Equals(productCategory) && product.Manufacturer.Equals(productManufacturer))
+                {
+                    return true; // return true if everything went well/product exists
+                }
+            }
+
+            return false; // return false if product does not exist
         }
 
+
+        // ---TO--DO--- // // @JS PHALA === FRONT-END PAGE TO BE DONE OR UPDATE THE SINGLE PRODUCT PAGE (SHOULD ADD WHO IS ABLE TO EDIT THE PRODUCT == MANAGER AND SELLER)
+        public bool editProduct(Product product, string userName, string passWord)
+        {
+
+            var prod = (from p in db.Products
+                        where p.Id.Equals(product.Id)
+                        select p).FirstOrDefault();
+
+            if(searchSeller(userName, passWord))
+            {
+                // Used for URL-Parameters
+                prod.Id = product.Id;
+                prod.Product_Name = product.Product_Name;
+                prod.Product_Price = product.Product_Price;
+                prod.Discount_Price = product.Discount_Price;
+
+                prod.Category = product.Category;
+
+                prod.Image = product.Image;
+                prod.Available = product.Available;
+                prod.Seller_ID = product.Seller_ID;
+                prod.Color = product.Color;
+                prod.Description = product.Description;
+                prod.Weight_KG = product.Weight_KG;
+                prod.Dimensions_XYZ = product.Dimensions_XYZ;
+                prod.Manufacturer = product.Manufacturer;
+
+                try
+                {
+                    db.SubmitChanges();
+                    return true;
+                }
+                catch (IndexOutOfRangeException eore)
+                {
+                    eore.GetBaseException();
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }           
+        }
+
+        // RETURNS THE PRODUCT (SINGLE PRODUCT PAGE)
         public Product getProductByID(int Id)
         {
-            dynamic prod = (from p in db.Products where p.Id==Id select p).FirstOrDefault();
+            dynamic prod = (from p in db.Products 
+                            where p.Id==Id 
+                            select p).FirstOrDefault();
 
             Product product = (Product)prod;
 
             return product;
         }
 
+
+        // RETURN ALL THE PRODUCTS(MENUES)
         public List<Product> getProducts()
         {
             dynamic products = (from p in db.Products select p);
@@ -151,6 +270,12 @@ namespace Group_Practical_Back_End
             return list;
         }
 
+
+        /// <summary>
+        /// returns the seller with the provided ID
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns>Seller</returns>
         public Seller getSellerByID(int Id)
         {
             // get user from database
@@ -198,14 +323,27 @@ namespace Group_Practical_Back_End
             return ret;
         }
 
+        /// <summary>
+        /// returns the userID with the provided username and password, integer UserID if the user exists
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns>User ID (integer) </returns>
         public int getUserID(string username, string password)
         {
             var user = (from u in db.Users
                         where u.Username.Equals(username)&& u.Password.Equals(password)
                         select u).FirstOrDefault();
+
             return user.Id;
         }
 
+        /// <summary>
+        /// Removes Items from the Cart
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <param name="productId"></param>
+        /// <returns>false if no items, true if item exists in cart</returns>
         public bool removeFromCart(int UserId, int productId)
         {
             var dbUser = (from u in db.Users where u.Id == UserId select u).FirstOrDefault();
@@ -266,6 +404,12 @@ namespace Group_Practical_Back_End
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public bool searchSeller(string username, string password)
         {
             dynamic input = (from seller in db.Sellers

@@ -36,7 +36,7 @@ namespace Group_Practical_Back_End
         bool addProduct(Product product);
 
         [OperationContract]
-        bool editProduct(Product product);
+        bool editProduct(Product product, string userName, string passWord);
 
         [OperationContract]
         bool addSeller(Seller seller);
@@ -49,5 +49,8 @@ namespace Group_Practical_Back_End
 
         [OperationContract]
         bool removeFromCart(int UserId, int productId);
+
+        [OperationContract]
+        bool searchProduct(string productName, string productCategory, string productManufacturer);
     }
 }

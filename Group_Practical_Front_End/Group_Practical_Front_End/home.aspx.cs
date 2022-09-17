@@ -11,7 +11,13 @@ namespace Group_Practical_Front_End
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // TO-DO
 
+            // Dynamically allocate the products from the database
+
+            // CATEGORIES
+
+            // FEATURED PRODUCTS
         }
     }
 }

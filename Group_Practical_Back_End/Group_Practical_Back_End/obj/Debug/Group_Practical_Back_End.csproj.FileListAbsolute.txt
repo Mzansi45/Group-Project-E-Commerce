@@ -5,3 +5,17 @@ C:\Users\thula\Documents\Informatics\Informatics 2\2B\Projects\Group_Practical_B
 C:\Users\thula\Documents\Informatics\Informatics 2\2B\Projects\Group_Practical_Back_End\Group_Practical_Back_End\obj\Debug\Group_Practical_Back_End.csproj.CoreCompileInputs.cache
 C:\Users\thula\Documents\Informatics\Informatics 2\2B\Projects\Group_Practical_Back_End\Group_Practical_Back_End\obj\Debug\Group_Practical_Back_End.dll
 C:\Users\thula\Documents\Informatics\Informatics 2\2B\Projects\Group_Practical_Back_End\Group_Practical_Back_End\obj\Debug\Group_Practical_Back_End.pdb
+C:\Users\PHENOMENAL\Desktop\Group Project\Group_Practical_Back_End\Group_Practical_Back_End\bin\Group_Practical_Back_End.dll.config
+C:\Users\PHENOMENAL\Desktop\Group Project\Group_Practical_Back_End\Group_Practical_Back_End\bin\Group_Practical_Back_End.dll
+C:\Users\PHENOMENAL\Desktop\Group Project\Group_Practical_Back_End\Group_Practical_Back_End\bin\Group_Practical_Back_End.pdb
+C:\Users\PHENOMENAL\Desktop\Group Project\Group_Practical_Back_End\Group_Practical_Back_End\obj\Debug\Group_Practical_Back_End.csproj.AssemblyReference.cache
+C:\Users\PHENOMENAL\Desktop\Group Project\Group_Practical_Back_End\Group_Practical_Back_End\obj\Debug\Group_Practical_Back_End.csproj.CoreCompileInputs.cache
+C:\Users\PHENOMENAL\Desktop\Group Project\Group_Practical_Back_End\Group_Practical_Back_End\obj\Debug\Group_Practical_Back_End.dll
+C:\Users\PHENOMENAL\Desktop\Group Project\Group_Practical_Back_End\Group_Practical_Back_End\obj\Debug\Group_Practical_Back_End.pdb
+D:\Downloads\Group Project (1)\Group Project\Group_Practical_Back_End\Group_Practical_Back_End\bin\Group_Practical_Back_End.dll.config
+D:\Downloads\Group Project (1)\Group Project\Group_Practical_Back_End\Group_Practical_Back_End\bin\Group_Practical_Back_End.dll
+D:\Downloads\Group Project (1)\Group Project\Group_Practical_Back_End\Group_Practical_Back_End\bin\Group_Practical_Back_End.pdb
+D:\Downloads\Group Project (1)\Group Project\Group_Practical_Back_End\Group_Practical_Back_End\obj\Debug\Group_Practical_Back_End.csproj.AssemblyReference.cache
+D:\Downloads\Group Project (1)\Group Project\Group_Practical_Back_End\Group_Practical_Back_End\obj\Debug\Group_Practical_Back_End.csproj.CoreCompileInputs.cache
+D:\Downloads\Group Project (1)\Group Project\Group_Practical_Back_End\Group_Practical_Back_End\obj\Debug\Group_Practical_Back_End.dll
+D:\Downloads\Group Project (1)\Group Project\Group_Practical_Back_End\Group_Practical_Back_End\obj\Debug\Group_Practical_Back_End.pdb

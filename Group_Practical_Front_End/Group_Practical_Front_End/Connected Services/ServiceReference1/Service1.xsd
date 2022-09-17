@@ -122,6 +122,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Group_Practical_Back_End" minOccurs="0" name="product" nillable="true" type="q6:Product" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="passWord" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -189,6 +191,22 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="removeFromCartResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="searchProduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="productName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="productCategory" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="productManufacturer" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="searchProductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="searchProductResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
