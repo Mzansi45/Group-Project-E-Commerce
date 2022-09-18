@@ -44,6 +44,14 @@ namespace Group_Practical_Front_End
             }
             else
             {
+                // get items from session cart
+                if (Session["cart"] !=null)
+                {
+                    string[] tokens = Session["cart"].ToString().Split(' ');
+                    cart_items.InnerText = Convert.ToString(tokens.Length - 1);
+                }
+
+                // disable logout button
                 acc.Visible = false;
             }
         }

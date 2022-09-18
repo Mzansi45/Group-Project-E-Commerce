@@ -71,6 +71,7 @@
   <ItemGroup>
     <Content Include="addtocart.aspx" />
     <Content Include="cart.aspx" />
+    <Content Include="checkout.aspx" />
     <Content Include="Connected Services\ServiceReference1\Group_Practical_Front_End.ServiceReference1.Product.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -112,6 +113,13 @@
     <Compile Include="cart.aspx.designer.cs">
       <DependentUpon>cart.aspx</DependentUpon>
     </Compile>
+    <Compile Include="checkout.aspx.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="checkout.aspx.designer.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -145,6 +153,7 @@
     <Compile Include="logout.aspx.designer.cs">
       <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Method_Container.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="register.aspx.cs">
       <DependentUpon>register.aspx</DependentUpon>

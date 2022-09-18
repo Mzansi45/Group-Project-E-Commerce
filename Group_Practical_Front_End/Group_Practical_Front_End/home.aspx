@@ -68,7 +68,6 @@
     </div>
     <!-- Carousel End -->
 
-
     <!-- Featured Start -->
     <div class="container-fluid pt-5">
         <div class="row px-xl-5 pb-3">
@@ -100,11 +99,10 @@
     </div>
     <!-- Featured End -->
 
-
     <!-- Categories Start -->
     <div class="container-fluid pt-5">
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Categories</span></h2>
-        <div class="row px-xl-5 pb-3">
+        <div class="row px-xl-5 pb-3" runat="server" id="home_categories">
             <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                 <a class="text-decoration-none" href="">
                     <div class="cat-item d-flex align-items-center mb-4">
@@ -265,11 +263,10 @@
     </div>
     <!-- Categories End -->
 
-
-    <!-- Products Start -->
+    <!-- Auction Products Start -->
     <div class="container-fluid pt-5 pb-3">
-        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Featured Products</span></h2>
-        <div class="row px-xl-5">
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Auction Products</span></h2>
+        <div class="row px-xl-5" runat="server" id="auction">
             <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                 <div class="product-item bg-light mb-4">
                     <div class="product-img position-relative overflow-hidden">
@@ -488,9 +485,8 @@
             </div>
         </div>
     </div>
-    <!-- Products End -->
-
-
+    <!-- Auction Products End -->
+    
     <!-- Offer Start -->
     <div class="container-fluid pt-5 pb-3">
         <div class="row px-xl-5">
@@ -500,7 +496,7 @@
                     <div class="offer-text">
                         <h6 class="text-white text-uppercase">Save 20%</h6>
                         <h3 class="text-white mb-3">Special Offer</h3>
-                        <a href="" class="btn btn-primary">Shop Now</a>
+                        <a href="shop.aspx?category=discount" class="btn btn-primary">Shop Now</a>
                     </div>
                 </div>
             </div>
@@ -510,14 +506,13 @@
                     <div class="offer-text">
                         <h6 class="text-white text-uppercase">Save 20%</h6>
                         <h3 class="text-white mb-3">Special Offer</h3>
-                        <a href="" class="btn btn-primary">Shop Now</a>
+                        <a href="shop.aspx?category=discount" class="btn btn-primary">Shop Now</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Offer End -->
-
 
     <!-- Products Start -->
     <div class="container-fluid pt-5 pb-3">

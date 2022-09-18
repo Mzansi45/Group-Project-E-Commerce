@@ -13,39 +13,80 @@ namespace Group_Practical_Front_End
         Service1Client sv = new Service1Client();
         protected void Page_Load(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(Request.QueryString["Id"]);
-            string returnTo = Request.QueryString["return"];
-            int UserId =Convert.ToInt32(Session["UserId"]);
-            
-
-            if(Request.QueryString["Add"]!=null)
+            if (Session["loggedIn"]!=null)
             {
-                int add = Convert.ToInt32(Request.QueryString["Add"]);
-                if (sv.addToCart(UserId, id, add))
+                int id = Convert.ToInt32(Request.QueryString["Id"]);
+                string returnTo = Request.QueryString["return"];
+                int UserId = Convert.ToInt32(Session["UserId"]);
+
+                if (Request.QueryString["Add"] != null)
                 {
-                    Response.Redirect(returnTo);
+                    int add = Convert.ToInt32(Request.QueryString["Add"]);
+                    if (sv.addToCart(UserId, id, add))
+                    {
+                        Response.Redirect(returnTo);
+                    }
+                    else
+                    {
+                        Response.Redirect("home.aspx");
+                    }
                 }
                 else
                 {
-                    Response.Redirect("home.aspx");
+                    int add = 0;
+                    if (sv.addToCart(UserId, id, add))
+                    {
+                        Response.Redirect(returnTo);
+                    }
+                    else
+                    {
+                        Response.Redirect("home.aspx");
+                    }
                 }
             }
             else
             {
-                int add = 0;
-                if (sv.addToCart(UserId, id, add))
+                int id = Convert.ToInt32(Request.QueryString["Id"]);
+                string returnTo = Request.QueryString["return"];
+
+                if (Request.QueryString["Add"] != null)
                 {
-                    Response.Redirect(returnTo);
+                    int add = Convert.ToInt32(Request.QueryString["Add"]);
+
+                    if (Session["cart"] != null)
+                    {
+                        string session = Session["cart"].ToString();
+                        Method_Container.addToSessionCart(id, ref session, add);
+                        Session["cart"] = session;
+                        Response.Redirect(returnTo);
+                    }
+                    else
+                    {
+                        string session = "";
+                        Method_Container.addToSessionCart(id, ref session, add);
+                        Session["cart"] = session;
+                        Response.Redirect(returnTo);
+                    }
                 }
                 else
                 {
-                    Response.Redirect("home.aspx");
+                    int add = 0;
+                    if (Session["cart"] != null)
+                    {
+                        string session = Session["cart"].ToString();
+                        Method_Container.addToSessionCart(id, ref session, add);
+                        Session["cart"] = session;
+                        Response.Redirect(returnTo);
+                    }
+                    else
+                    {
+                        string session = "";
+                        Method_Container.addToSessionCart(id, ref session, add);
+                        Session["cart"] = session;
+                        Response.Redirect(returnTo);
+                    }
                 }
-            }
-
-
-
-            
+            }           
         }
     }
 }

@@ -86,7 +86,7 @@
                                 <asp:Button OnClick="White_Click" id="white" style="width:20px;height:20px;background-color:white" runat="server"/>
                                 <label  for="white"> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;White&nbsp;
                                     &nbsp;&nbsp;&nbsp;&nbsp;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                 <span class="badge border font-weight-normal">500</span>
                             </p>
                         </div>

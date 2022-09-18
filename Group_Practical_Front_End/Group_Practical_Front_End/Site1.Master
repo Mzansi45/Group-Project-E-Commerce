@@ -184,7 +184,7 @@
                                     <a href="shop.aspx" class="nav-item nav-link">Shop</a>
                                     
                                     <!--Pages div-->
-                                    <div class="nav-item dropdown" id="Pages" visible="false" runat="server">
+                                    <div class="nav-item dropdown" id="Pages" runat="server">
                                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
                                         <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
                                             <a href="cart.aspx" class="dropdown-item">Shopping Cart</a>
@@ -197,7 +197,7 @@
                                 </div>
 
                                  <!--Wish List and Cart Div-->
-                                <div class="navbar-nav ml-auto py-0 d-none d-lg-block" id="wishListCartdiv" visible="false"  runat="server">
+                                <div class="navbar-nav ml-auto py-0 d-none d-lg-block" id="wishListCartdiv"  runat="server">
                                     <!--Wish List-->
                                     <a href="#" class="btn px-0" id="wish_list_Icon">
                                         <i class="fas fa-heart text-primary"></i>

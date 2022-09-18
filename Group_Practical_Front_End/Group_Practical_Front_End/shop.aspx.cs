@@ -48,7 +48,6 @@ namespace Group_Practical_Front_End
                     display(prod);
                 }
             }
-
         }
 
         //@T gulube 219020988
@@ -311,17 +310,7 @@ namespace Group_Practical_Front_End
             productsSection.InnerHtml += "<div class='product-item bg-light mb-4'>";
             productsSection.InnerHtml += "<div class='product-img position-relative overflow-hidden'>";
             productsSection.InnerHtml += "<a href='single.aspx?Id="+prod.Id+"'><img class='img-fluid w-100' src=" + prod.Image + " alt=''></a>";
-
-            // disable cart/wish list options for users that are not logged in
-            if (Session["LoggedIn"] != null)
-            {
-                productsSection.InnerHtml += "<div class='product-action'>";
-            }
-            else
-            {
-                productsSection.InnerHtml += "<div class='product-action' style='visibility:hidden;'>";
-            }
-
+            productsSection.InnerHtml += "<div class='product-action'>";
             productsSection.InnerHtml += "<a class='btn btn-outline-dark btn-square' href='addtocart.aspx?Id="+prod.Id+"&return=shop.aspx&Add=0'><i class='fa fa-shopping-cart'></i></a>";
             productsSection.InnerHtml += "<a class='btn btn-outline-dark btn-square' href=''><i class='far fa-heart'></i></a>";
             productsSection.InnerHtml += "<a class='btn btn-outline-dark btn-square' href='shop.aspx'><i class='fa fa-sync-alt'></i></a>";
@@ -331,7 +320,7 @@ namespace Group_Practical_Front_End
             productsSection.InnerHtml += "<div class='d - flex align-items-center justify-content-center mt-2'>";
             if(prod.Discount_Price !=null)
             {
-                productsSection.InnerHtml += "<a href='single.aspx?Id=" + prod.Id + "'>< h5>R" + String.Format("{0:0.##}", prod.Discount_Price) + "</h5><h6 class='text-muted ml-2'>R<del>" + String.Format("{0:0.##}", prod.Product_Price) + "</</del></h6></div></a>";
+                productsSection.InnerHtml += "<a href='single.aspx?Id=" + prod.Id + "'><h5>R" + String.Format("{0:0.##}", prod.Discount_Price) + "</h5><h6 class='text-muted ml-2'>R<del>" + String.Format("{0:0.##}", prod.Product_Price) + "</</del></h6></div></a>";
             }
             else
             {
