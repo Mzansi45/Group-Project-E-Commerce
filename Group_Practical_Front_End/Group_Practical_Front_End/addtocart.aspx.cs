@@ -15,10 +15,11 @@ namespace Group_Practical_Front_End
         {
             if (Session["loggedIn"]!=null)
             {
-                int id = Convert.ToInt32(Request.QueryString["Id"]);
-                string returnTo = Request.QueryString["return"];
-                int UserId = Convert.ToInt32(Session["UserId"]);
+                int id = Convert.ToInt32(Request.QueryString["Id"]); //ID of product to be added
+                string returnTo = Request.QueryString["return"]; // this is the page we return to after adding 
+                int UserId = Convert.ToInt32(Session["UserId"]); //ID of the user
 
+                //add determines if we add or minus from the cart 0 for adding
                 if (Request.QueryString["Add"] != null)
                 {
                     int add = Convert.ToInt32(Request.QueryString["Add"]);
@@ -70,6 +71,7 @@ namespace Group_Practical_Front_End
                 }
                 else
                 {
+                    // operation for guest shoppers
                     int add = 0;
                     if (Session["cart"] != null)
                     {

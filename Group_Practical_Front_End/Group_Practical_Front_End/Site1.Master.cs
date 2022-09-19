@@ -24,22 +24,31 @@ namespace Group_Practical_Front_End
                 log.Visible = false;
                 sign.Visible = false;
                 sell.Visible = false;
-                Pages.Visible = true;
+                Manager.Visible = false;
                 wishListCartdiv.Visible = true;
 
 
                 // get items on users wish list
-                if (user.Wish_List!=null)
+                if (user.Wish_List == null )
+                {
+                    wish_list_items.InnerText = "0";
+                   
+                }
+                else
                 {
                     string[] tokens = user.Wish_List.Split(' ');
-                    wish_list_items.InnerText = Convert.ToString(tokens.Length);
+                    wish_list_items.InnerText = Convert.ToString(tokens.Length - 1);
                 }
 
                 // get items on users Cart list
-                if(user.Cart_Items!=null)
+                if(user.Cart_Items  == null || user.Cart_Items.Equals(""))
+                {
+                    cart_items.InnerHtml = "0";
+                }
+                else
                 {
                     string[] tokens = user.Cart_Items.Split(' ');
-                    cart_items.InnerText = Convert.ToString(tokens.Length-1);
+                    cart_items.InnerText = Convert.ToString(tokens.Length - 1);
                 }
             }
             else

@@ -85,12 +85,6 @@
   <wsdl:message name="IService1_removeFromCart_OutputMessage">
     <wsdl:part name="parameters" element="tns:removeFromCartResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_searchProduct_InputMessage">
-    <wsdl:part name="parameters" element="tns:searchProduct" />
-  </wsdl:message>
-  <wsdl:message name="IService1_searchProduct_OutputMessage">
-    <wsdl:part name="parameters" element="tns:searchProductResponse" />
-  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="addUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/addUser" message="tns:IService1_addUser_InputMessage" />
@@ -143,10 +137,6 @@
     <wsdl:operation name="removeFromCart">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/removeFromCart" message="tns:IService1_removeFromCart_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/removeFromCartResponse" message="tns:IService1_removeFromCart_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="searchProduct">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/searchProduct" message="tns:IService1_searchProduct_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/searchProductResponse" message="tns:IService1_searchProduct_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -261,15 +251,6 @@
     </wsdl:operation>
     <wsdl:operation name="removeFromCart">
       <soap:operation soapAction="http://tempuri.org/IService1/removeFromCart" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="searchProduct">
-      <soap:operation soapAction="http://tempuri.org/IService1/searchProduct" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

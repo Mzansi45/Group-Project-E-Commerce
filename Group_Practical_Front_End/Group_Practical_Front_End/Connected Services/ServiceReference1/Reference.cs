@@ -665,10 +665,10 @@ namespace Group_Practical_Front_End.ServiceReference1 {
         System.Threading.Tasks.Task<bool> addProductAsync(Group_Practical_Front_End.ServiceReference1.Product product);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/editProduct", ReplyAction="http://tempuri.org/IService1/editProductResponse")]
-        bool editProduct(Group_Practical_Front_End.ServiceReference1.Product product, string userName, string passWord);
+        bool editProduct(Group_Practical_Front_End.ServiceReference1.Product product);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/editProduct", ReplyAction="http://tempuri.org/IService1/editProductResponse")]
-        System.Threading.Tasks.Task<bool> editProductAsync(Group_Practical_Front_End.ServiceReference1.Product product, string userName, string passWord);
+        System.Threading.Tasks.Task<bool> editProductAsync(Group_Practical_Front_End.ServiceReference1.Product product);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/addSeller", ReplyAction="http://tempuri.org/IService1/addSellerResponse")]
         bool addSeller(Group_Practical_Front_End.ServiceReference1.Seller seller);
@@ -693,12 +693,6 @@ namespace Group_Practical_Front_End.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/removeFromCart", ReplyAction="http://tempuri.org/IService1/removeFromCartResponse")]
         System.Threading.Tasks.Task<bool> removeFromCartAsync(int UserId, int productId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/searchProduct", ReplyAction="http://tempuri.org/IService1/searchProductResponse")]
-        bool searchProduct(string productName, string productCategory, string productManufacturer);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/searchProduct", ReplyAction="http://tempuri.org/IService1/searchProductResponse")]
-        System.Threading.Tasks.Task<bool> searchProductAsync(string productName, string productCategory, string productManufacturer);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -792,12 +786,12 @@ namespace Group_Practical_Front_End.ServiceReference1 {
             return base.Channel.addProductAsync(product);
         }
         
-        public bool editProduct(Group_Practical_Front_End.ServiceReference1.Product product, string userName, string passWord) {
-            return base.Channel.editProduct(product, userName, passWord);
+        public bool editProduct(Group_Practical_Front_End.ServiceReference1.Product product) {
+            return base.Channel.editProduct(product);
         }
         
-        public System.Threading.Tasks.Task<bool> editProductAsync(Group_Practical_Front_End.ServiceReference1.Product product, string userName, string passWord) {
-            return base.Channel.editProductAsync(product, userName, passWord);
+        public System.Threading.Tasks.Task<bool> editProductAsync(Group_Practical_Front_End.ServiceReference1.Product product) {
+            return base.Channel.editProductAsync(product);
         }
         
         public bool addSeller(Group_Practical_Front_End.ServiceReference1.Seller seller) {
@@ -830,14 +824,6 @@ namespace Group_Practical_Front_End.ServiceReference1 {
         
         public System.Threading.Tasks.Task<bool> removeFromCartAsync(int UserId, int productId) {
             return base.Channel.removeFromCartAsync(UserId, productId);
-        }
-        
-        public bool searchProduct(string productName, string productCategory, string productManufacturer) {
-            return base.Channel.searchProduct(productName, productCategory, productManufacturer);
-        }
-        
-        public System.Threading.Tasks.Task<bool> searchProductAsync(string productName, string productCategory, string productManufacturer) {
-            return base.Channel.searchProductAsync(productName, productCategory, productManufacturer);
         }
     }
 }

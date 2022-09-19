@@ -22,7 +22,6 @@ namespace Group_Practical_Front_End
 
             if(sv.searchUser(username.Value,HashedPassword))
             {
-
                 Session["LoggedIn"] = true;
                 Session["UserID"] = sv.getUserID(username.Value, HashedPassword);
 

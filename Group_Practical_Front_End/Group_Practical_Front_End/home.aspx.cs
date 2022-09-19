@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace Group_Practical_Front_End
 {
+    //structure for category at home.
     public struct category
     {
         public string name;
@@ -20,6 +21,8 @@ namespace Group_Practical_Front_End
         Service1Client sv = new Service1Client();
         List<category> list = new List<category>();
 
+        // this function add all categories available to the list
+        //@T Gulube 219020988
         private void setCategory()
         {
             //shoes category
@@ -72,36 +75,23 @@ namespace Group_Practical_Front_End
             list.Add(personal);
         }
 
-        public void setListOfCategories()
-        {
-            List<Product> products = new List<Product>();
-            products = sv.getProducts().ToList();
 
-            foreach(Product product in products)
-            {
-                for(int x =0;x<list.Count;x++)
-                {
-                    if (list[x].name.Equals(product.Category))
-                    {
-                        category category = list[x];
-                        category.items++;
-                        list.RemoveAt(x);
-                        list.Add(category);
-                    }
-                }
-            }
+        //this function determines number of products in each category
+        public void numberOfProductsInCategory()
+        {
+            //get list of products from service then count number of items in each category then add number to our front end list
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             setCategory();
-            //setListOfCategories();
             // TO-DO
 
             // Dynamically allocate the products from the database
 
             // CATEGORIES
 
+            //dynamically populating all categories in the list of categories
             home_categories.InnerHtml = "";
             foreach (category cat in list)
             {
@@ -118,6 +108,7 @@ namespace Group_Practical_Front_End
 
             List<Product> products = new List<Product>();
 
+            //getting auction items and display them
             dynamic prods = sv.getProducts().ToList();
             foreach (dynamic item in prods)
             {
@@ -127,13 +118,15 @@ namespace Group_Practical_Front_End
             auction.InnerHtml = "";
             foreach (Product prod in products)
             {
-                if(prod.Seller_ID ==0)
+                if(prod.Seller_ID == 0)
                 {
                     display(prod);
                 }       
             }
         }
 
+        //@T Gulube 219020988
+        // this function display a product passed to it to the auction division
         public void display(Product prod)
         {           
             auction.InnerHtml += "<div class='col-lg-3 col-md-4 col-sm-6 pb-1'>";

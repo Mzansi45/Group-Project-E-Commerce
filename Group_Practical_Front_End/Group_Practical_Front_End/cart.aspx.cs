@@ -19,25 +19,50 @@ namespace Group_Practical_Front_End
                 user = sv.getUserById(Convert.ToInt32(Session["UserID"].ToString()));
 
                 //check if user has items in the cart
-                if(user.Cart_Items!=null)
+                if(user.Cart_Items == null || user.Cart_Items.Equals(""))
                 {
+                    //if user does have anything in their cart
+                    shipping.InnerHtml = "R0";
+                    cart_items.InnerHtml = "";
+                    subt.InnerHtml = "R0";
+                    masterTotal.InnerHtml = "R0";         
+                } 
+                else
+                {
+                    // get string list from database and split it
                     string[] list = user.Cart_Items.Split(' ');
 
                     int size = list.Length;
-                    List<Product> products = new List<Product>();
+                    List<Product> products = new List<Product>();// product that are in the cart
 
-                    List<int> productId = new List<int>();
-                    List<int> NumberOfItems = new List<int>();
+                    List<int> productId = new List<int>(); // list of IDs of products in the cart
+                    List<int> NumberOfItems = new List<int>();// number of items per product  from the cart
+
+                    if (size == 1)
+                    {
+                        cart_items.InnerHtml = "";
+                        return;
+                    }
 
                     for (int x = 0; x < size - 1; x++)
                     {
-
                         //get product Id and add it to the list of IDs
+                        if (size == 1)
+                        {
+                            cart_items.InnerHtml = "";
+                            return;
+                        }
+
                         int index = list[x].IndexOf('(');
+                        if (index < 0)
+                        {
+                            cart_items.InnerHtml = "";
+                            return;
+                        }
+
                         int l = list[x].Length;
                         list[x] = list[x].Remove(index, l - 1);
                         productId.Add(Convert.ToInt32(list[x]));
-
                     }
 
                     string[] list2 = user.Cart_Items.Split(' ');
@@ -60,14 +85,14 @@ namespace Group_Practical_Front_End
                     decimal subtotal = 0;
                     for (int x = 0; x < size - 1; x++)
                     {
-                        cart_items.InnerHtml += "<tr><td class='align-middle'><img src='" + products[x].Image + "' alt='' style='width: 50px;'><a href='single.aspx?Id=" + products[x].Id + "'> " + products[x].Product_Name + "<a style='visibility:hidden;'>" + products[x].Id +"</a></a></td>";
+                        cart_items.InnerHtml += "<tr><td class='align-middle'><img src='" + products[x].Image + "' alt='' style='width: 50px;'><a href='single.aspx?Id=" + products[x].Id + "'> " + products[x].Product_Name + "<a style='visibility:hidden;'>" + products[x].Id + "</a></a></td>";
                         cart_items.InnerHtml += "<td class='align-middle'>R" + String.Format("{0:0.##}", products[x].Product_Price) + "</td><td class='align-middle'>";
                         cart_items.InnerHtml += "<div class='input-group quantity mx-auto' style='width: 100px;'>";
                         cart_items.InnerHtml += "<div class='input-group-btn'>";
-                        cart_items.InnerHtml += "<a class='btn btn-sm btn-primary btn-minus' href='addtocart.aspx?Id=" + products[x].Id +"&return=cart.aspx&Add=-1'><i class='fa fa-minus'></i></a></div>";
+                        cart_items.InnerHtml += "<a class='btn btn-sm btn-primary btn-minus' href='addtocart.aspx?Id=" + products[x].Id + "&return=cart.aspx&Add=-1'><i class='fa fa-minus'></i></a></div>";
                         //cart_items.InnerHtml += "<i class='fa fa-minus'></i></a></div>";
                         cart_items.InnerHtml += "<input type='text' class='form-control form-control-sm bg-secondary border-0 text-center' value='" + NumberOfItems[x] + "'>";
-                        cart_items.InnerHtml += "<div class='input-group-btn'><a href='addtocart.aspx?Id=" + products[x].Id +"&return=cart.aspx&Add=0' class='btn btn-sm btn-primary btn-plus'>";
+                        cart_items.InnerHtml += "<div class='input-group-btn'><a href='addtocart.aspx?Id=" + products[x].Id + "&return=cart.aspx&Add=0' class='btn btn-sm btn-primary btn-plus'>";
                         cart_items.InnerHtml += "<i class='fa fa-plus'></i></a></div></div></td>";
                         decimal tot = products[x].Product_Price * NumberOfItems[x];
                         subtotal += tot;
@@ -75,26 +100,18 @@ namespace Group_Practical_Front_End
                         /*<asp:LinkButton OnClick="AddToCart_Click" runat="server" class="btn btn-primary btn-plus">
                                     <i class="fa fa-plus"></i>
                                 </asp:LinkButton>*/
-                        cart_items.InnerHtml += "<td class='align-middle'><a class='btn btn-sm btn-danger' href='removefromcart.aspx?Id=" + products[x].Id +"&return=cart.aspx'><i class='fa fa-times'></i></a></td>";
+                        cart_items.InnerHtml += "<td class='align-middle'><a class='btn btn-sm btn-danger' href='removefromcart.aspx?Id=" + products[x].Id + "&return=cart.aspx'><i class='fa fa-times'></i></a></td>";
                     }
                     shipping.InnerHtml = "R60";
                     subt.InnerHtml = "R" + String.Format("{0:0.##}", subtotal);
 
                     decimal totalCartPrice = subtotal + 60;
                     masterTotal.InnerHtml = "R" + String.Format("{0:0.##}", totalCartPrice);
-                } 
-                else
-                {
-                    //if user does have anything in their cart
-                    shipping.InnerHtml = "R0";
-                    cart_items.InnerHtml = "";
-                    subt.InnerHtml = "R0";
-                    masterTotal.InnerHtml = "R0";
                 }
             }
             else
             {
-                //create cart using session
+                //create cart using session for unlogged In users
                 if (Session["cart"] != null)
                 {
                     string[] list = Session["cart"].ToString().Split(' ');
@@ -148,16 +165,12 @@ namespace Group_Practical_Front_End
                         cart_items.InnerHtml += "<div class='input-group quantity mx-auto' style='width: 100px;'>";
                         cart_items.InnerHtml += "<div class='input-group-btn'>";
                         cart_items.InnerHtml += "<a class='btn btn-sm btn-primary btn-minus' href='addtocart.aspx?Id=" + products[x].Id + "&return=cart.aspx&Add=-1'><i class='fa fa-minus'></i></a></div>";
-                        //cart_items.InnerHtml += "<i class='fa fa-minus'></i></a></div>";
                         cart_items.InnerHtml += "<input type='text' class='form-control form-control-sm bg-secondary border-0 text-center' value='" + NumberOfItems[x] + "'>";
                         cart_items.InnerHtml += "<div class='input-group-btn'><a href='addtocart.aspx?Id=" + products[x].Id + "&return=cart.aspx&Add=0' class='btn btn-sm btn-primary btn-plus'>";
                         cart_items.InnerHtml += "<i class='fa fa-plus'></i></a></div></div></td>";
                         decimal tot = products[x].Product_Price * NumberOfItems[x];
                         subtotal += tot;
                         cart_items.InnerHtml += "<td class='align-middle'>R" + String.Format("{0:0.##}", tot) + "</td>";
-                        /*<asp:LinkButton OnClick="AddToCart_Click" runat="server" class="btn btn-primary btn-plus">
-                                    <i class="fa fa-plus"></i>
-                                </asp:LinkButton>*/
                         cart_items.InnerHtml += "<td class='align-middle'><a class='btn btn-sm btn-danger' href='removefromcart.aspx?Id=" + products[x].Id + "&return=cart.aspx'><i class='fa fa-times'></i></a></td>";
                     }
                     shipping.InnerHtml = "R60";
