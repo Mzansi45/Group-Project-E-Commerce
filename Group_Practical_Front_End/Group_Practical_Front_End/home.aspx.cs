@@ -118,7 +118,7 @@ namespace Group_Practical_Front_End
             auction.InnerHtml = "";
             foreach (Product prod in products)
             {
-                if(prod.Seller_ID == 0)
+                if(prod.Seller_ID != 0)
                 {
                     display(prod);
                 }       

@@ -17,39 +17,59 @@ namespace Group_Practical_Front_End
             
             if (Session["LoggedIn"] != null)
             {
-                user = sv.getUserById(Convert.ToInt32(Session["UserID"].ToString()));
-
-                account.InnerText = user.First_Name;
-                acc.Visible = true;
-                log.Visible = false;
-                sign.Visible = false;
-                sell.Visible = false;
-                Manager.Visible = false;
-                wishListCartdiv.Visible = true;
-
-
-                // get items on users wish list
-                if (user.Wish_List == null )
+                if (Session["UserType"].ToString().Equals("Customer"))
                 {
-                    wish_list_items.InnerText = "0";
-                   
-                }
-                else
-                {
-                    string[] tokens = user.Wish_List.Split(' ');
-                    wish_list_items.InnerText = Convert.ToString(tokens.Length - 1);
-                }
+                    user = sv.getUserById(Convert.ToInt32(Session["UserID"].ToString()));
 
-                // get items on users Cart list
-                if(user.Cart_Items  == null || user.Cart_Items.Equals(""))
-                {
-                    cart_items.InnerHtml = "0";
+                    account.InnerText = user.First_Name;
+                    acc.Visible = true;
+                    log.Visible = false;
+                    sign.Visible = false;
+                    sell.Visible = false;
+                    wishListCartdiv.Visible = true;
+                    addproduct.Visible = false;
+
+
+                    // get items on users wish list
+                    if (user.Wish_List == null)
+                    {
+                        wish_list_items.InnerText = "0";
+                    }
+                    else
+                    {
+                        string[] tokens = user.Wish_List.Split(' ');
+                        wish_list_items.InnerText = Convert.ToString(tokens.Length - 1);
+                    }
+
+                    // get items on users Cart list
+                    if (user.Cart_Items == null || user.Cart_Items.Equals(""))
+                    {
+                        cart_items.InnerHtml = "0";
+                    }
+                    else
+                    {
+                        string[] tokens = user.Cart_Items.Split(' ');
+                        cart_items.InnerText = Convert.ToString(tokens.Length - 1);
+                    }
                 }
-                else
+                else if (Session["UserType"].ToString().Equals("Seller"))
                 {
-                    string[] tokens = user.Cart_Items.Split(' ');
-                    cart_items.InnerText = Convert.ToString(tokens.Length - 1);
-                }
+                    Seller seller = new Seller();
+                    seller = sv.getSellerByID(Convert.ToInt32(Session["UserID"].ToString()));
+                    account.InnerText = seller.S_Name;
+
+                    //enable and disable fields
+                    acc.Visible = true;
+                    log.Visible = false;
+                    sign.Visible = false;
+                    sell.Visible = false;
+                    wishListCartdiv.Visible = true;
+                    addproduct.Visible = true;
+                    home.Visible = false;
+                    Pages.Visible = false;
+                    shop.InnerText = "My Products";
+                    wishListCartdiv.Visible = false;
+                }   
             }
             else
             {
@@ -78,6 +98,11 @@ namespace Group_Practical_Front_End
         protected void register_Click(object sender, EventArgs e)
         {
             Response.Redirect("register.aspx");
+        }
+
+        protected void RegisterSeller_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("sellerregister.aspx");
         }
     }
 }

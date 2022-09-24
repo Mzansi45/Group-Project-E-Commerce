@@ -20,16 +20,42 @@ namespace Group_Practical_Front_End
         {
             string HashedPassword = HashPass.Secrecy.HashPassword(password.Value);
 
-            if(sv.searchUser(username.Value,HashedPassword))
+            if(manager.Checked)
             {
-                Session["LoggedIn"] = true;
-                Session["UserID"] = sv.getUserID(username.Value, HashedPassword);
+                //Response.Redirect("home.aspx");
+                errormessage.Visible = true;
+            }
+            else if(customer.Checked)
+            {
+                if (sv.searchUser(username.Value, HashedPassword))
+                {
+                    Session["LoggedIn"] = true;
+                    Session["UserID"] = sv.getUserID(username.Value, HashedPassword);
+                    Session["UserType"] = "Customer";
 
-                Response.Redirect("home.aspx");
+                    Response.Redirect("home.aspx");
+                }
+                else
+                {
+                    //errormessage.InnerHtml = "Incorrect Username/Password";
+                    errormessage.Visible = true;
+                }
             }
             else
             {
-                errormessage.InnerHtml = "Incorrect Username/Password";
+                if (sv.searchSeller(username.Value, HashedPassword))
+                {
+                    Session["LoggedIn"] = true;
+                    Session["UserID"] = sv.getSellerId(username.Value, HashedPassword);
+                    Session["UserType"] = "Seller";
+
+                    Response.Redirect("shop.aspx");
+                }
+                else
+                {
+                    //errormessage.InnerHtml = "Incorrect Username/Password";
+                    errormessage.Visible = true;
+                }
             }
         }
     }

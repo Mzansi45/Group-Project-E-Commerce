@@ -78,13 +78,31 @@ namespace Group_Practical_Front_End
         protected global::System.Web.UI.WebControls.Button sell;
 
         /// <summary>
-        /// Manager control.
+        /// navbar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Manager;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl navbar;
+
+        /// <summary>
+        /// home control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor home;
+
+        /// <summary>
+        /// shop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor shop;
 
         /// <summary>
         /// Pages control.
@@ -94,6 +112,15 @@ namespace Group_Practical_Front_End
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Pages;
+
+        /// <summary>
+        /// addproduct control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor addproduct;
 
         /// <summary>
         /// wishListCartdiv control.

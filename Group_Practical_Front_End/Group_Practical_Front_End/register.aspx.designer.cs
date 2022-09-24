@@ -15,15 +15,6 @@ namespace Group_Practical_Front_End
     {
 
         /// <summary>
-        /// username control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText username;
-
-        /// <summary>
         /// name control.
         /// </summary>
         /// <remarks>
@@ -69,13 +60,22 @@ namespace Group_Practical_Front_End
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword password;
 
         /// <summary>
+        /// username control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText username;
+
+        /// <summary>
         /// confirmpass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword confirmpass;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText confirmpass;
 
         /// <summary>
         /// sign_up control.

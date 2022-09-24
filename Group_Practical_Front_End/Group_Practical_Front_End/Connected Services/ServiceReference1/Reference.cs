@@ -693,6 +693,12 @@ namespace Group_Practical_Front_End.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/removeFromCart", ReplyAction="http://tempuri.org/IService1/removeFromCartResponse")]
         System.Threading.Tasks.Task<bool> removeFromCartAsync(int UserId, int productId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getSellerId", ReplyAction="http://tempuri.org/IService1/getSellerIdResponse")]
+        int getSellerId(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getSellerId", ReplyAction="http://tempuri.org/IService1/getSellerIdResponse")]
+        System.Threading.Tasks.Task<int> getSellerIdAsync(string username, string password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -824,6 +830,14 @@ namespace Group_Practical_Front_End.ServiceReference1 {
         
         public System.Threading.Tasks.Task<bool> removeFromCartAsync(int UserId, int productId) {
             return base.Channel.removeFromCartAsync(UserId, productId);
+        }
+        
+        public int getSellerId(string username, string password) {
+            return base.Channel.getSellerId(username, password);
+        }
+        
+        public System.Threading.Tasks.Task<int> getSellerIdAsync(string username, string password) {
+            return base.Channel.getSellerIdAsync(username, password);
         }
     }
 }

@@ -69,6 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="addproduct.aspx" />
     <Content Include="addtocart.aspx" />
     <Content Include="cart.aspx" />
     <Content Include="checkout.aspx" />
@@ -94,11 +95,19 @@
     <Content Include="logout.aspx" />
     <Content Include="register.aspx" />
     <Content Include="removefromcart.aspx" />
+    <Content Include="sellerregister.aspx" />
     <Content Include="shop.aspx" />
     <Content Include="single.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addproduct.aspx.cs">
+      <DependentUpon>addproduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addproduct.aspx.designer.cs">
+      <DependentUpon>addproduct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="addtocart.aspx.cs">
       <DependentUpon>addtocart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -170,6 +179,13 @@
       <DependentUpon>removefromcart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Secrecy.cs" />
+    <Compile Include="sellerregister.aspx.cs">
+      <DependentUpon>sellerregister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sellerregister.aspx.designer.cs">
+      <DependentUpon>sellerregister.aspx</DependentUpon>
+    </Compile>
     <Compile Include="shop.aspx.cs">
       <DependentUpon>shop.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

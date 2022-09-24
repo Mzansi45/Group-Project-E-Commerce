@@ -1,14 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="register.aspx.cs" Inherits="Group_Practical_Front_End.register" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="sellerregister.aspx.cs" Inherits="Group_Practical_Front_End.sellerregister" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
- 
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="bg-light p-30 mb-5" style="width: 800px;margin: auto;left: 0;right: 0;top: 0;bottom: 0;margin-top: 100px;border-width: 1px;">
+        <div class="bg-light p-30 mb-5" style="width: 800px;margin: auto;left: 0;right: 0;top: 0;bottom: 0;margin-top: 100px;border-width: 1px;">
 
     <div>
-        <h1 style="text-align:center;">Customer Registration</h1>
+        <h1 style="text-align:center;">Seller Registration</h1>
         <br/>
     </div>
 
@@ -22,35 +19,38 @@
                 <input class="form-control" required="required" type="text" id="surname" runat="server" placeholder="Doe">
             </div>
             <div class="col-md-6 form-group">
+                <label>Identity Number**<sub> (max 16)</sub></label>
+                <input class="form-control" required="required" type="text" maxlength="16" id="idnumber" runat="server" placeholder="ID number">
+            </div>
+            <div class="col-md-6 form-group">
                 <label>E-mail*</label>
                 <input class="form-control" required="required" type="email" id="email" runat="server" placeholder="example@email.com">
             </div>
             <div class="col-md-6 form-group">
                 <label>Mobile No*</label>
-                <input class="form-control" type="tel" required="required" id="phone" runat="server" placeholder="+123 456 789">
+                <input class="form-control" required="required" type="tel" id="phone" runat="server" placeholder="+123 456 789">
             </div>
             <div class="col-md-6 form-group">
                 <label>Password*</label>
-                <input class="form-control" type="password" required="required" id="password" runat="server" placeholder="Password">
+                <input class="form-control" required="required" type="password" id="password" runat="server" placeholder="Password">
             </div>
             <div class="col-md-6 form-group">
                 <label>Username*</label>
-                <input class="form-control" type="text" required="required" id="username" runat="server" placeholder="Username">
+                <input class="form-control" required="required" type="text" id="username" runat="server" placeholder="Username">
             </div>
             <div class="col-md-6 form-group">
                 <label>Confirm Password*</label>
-                <input class="form-control" type="text" required="required" id="confirmpass" runat="server" placeholder="Confirm Password">
+                <input class="form-control" required="required" type="text" id="confirmpass" runat="server" placeholder="Confirm Password">
             </div>
             <div class="col-md-12 form-group">
-               <asp:Button runat="server" class="btn btn-block btn-primary font-weight-bold py-3" Text="Register" ID="sign_up" OnClick="register_Click" />
+               <asp:Button runat="server" OnClick="Add_Click" class="btn btn-block btn-primary font-weight-bold py-3" Text="Register" ID="sign_up"/>
             </div>
             <div class="col-md-12 form-group">
                 <a href="login.aspx">already have an account</a>
             </div>
             <div class="col-md-12 form-group">
-                <p id="errormessage" style="color:red;visibility: hidden;" runat="server" >User already exists</p>
+                <p id="errormessage" style="color:red;visibility: hidden;" runat="server" >Seller already exists</p>
             </div>
         </div>
     </div>
-
 </asp:Content>

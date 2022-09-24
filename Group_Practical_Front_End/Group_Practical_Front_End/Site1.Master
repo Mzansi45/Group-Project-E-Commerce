@@ -55,8 +55,8 @@
                                     <asp:Button Text="Login" runat="server" CssClass="dropdown-item" OnClick="login_Click" Id="log"/>
                                     <asp:Button Text="Sign Up" runat="server" CssClass="dropdown-item" OnClick="register_Click" Id="sign"/>
                                     <asp:Button Text="Logout" runat="server" CssClass="dropdown-item" OnClick="logout_Click" Id="acc"/>
-                                    <asp:Button Text="Login As Seller" runat="server" CssClass="dropdown-item"  Id="sell"/>
-                                    <asp:Button Text="Login As Manager" runat="server" CssClass="dropdown-item"  Id="Manager"/>
+                                    <asp:Button Text="Register Seller" runat="server" CssClass="dropdown-item" OnClick="RegisterSeller_Click" Id="sell"/>
+                         
                                 </div>
                             </div>
                             <div class="btn-group mx-2">
@@ -177,11 +177,11 @@
                             </button>
 
                             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                                <div class="navbar-nav mr-auto py-0">
+                                <div class="navbar-nav mr-auto py-0" runat="server" id="navbar">
 
                                     <!--Home and Shop-->
-                                    <a href="home.aspx" class="nav-item nav-link">Home</a>
-                                    <a href="shop.aspx" class="nav-item nav-link">Shop</a>
+                                    <a href="home.aspx" class="nav-item nav-link" runat="server" id="home">Home</a>
+                                    <a href="shop.aspx" class="nav-item nav-link" runat="server" id="shop">Shop</a>
                                     
                                     <!--Pages div-->
                                     <div class="nav-item dropdown" id="Pages" runat="server">
@@ -193,7 +193,8 @@
                                     </div>
 
                                     <!--Contact-->
-                                    <a href="contact.aspx" class="nav-item nav-link active">Contact</a>
+                                    <a href="contact.aspx" class="nav-item nav-link">Contact</a>
+                                    <a href="addproduct.aspx" class="nav-item nav-link" runat="server" id="addproduct" visible="false">Add Product</a>
                                 </div>
 
                                  <!--Wish List and Cart Div-->

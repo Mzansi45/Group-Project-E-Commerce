@@ -40,19 +40,7 @@
                         Nonumy</p>
 
                     <div class="d-flex align-items-center mb-4 pt-2">
-                        <div class="input-group quantity mr-3" style="width: 130px;">
-                            <div class="input-group-btn" runat="server" id="minus">
-                                <asp:LinkButton OnClick="Minus_Click" runat="server" class="btn btn-primary btn-minus">
-                                    <i class="fa fa-minus"></i>
-                                </asp:LinkButton>
-                            </div>
-                            <input type="text" class="form-control bg-secondary border-0 text-center" value="1">
-                            <div class="input-group-btn" runat="server" id="plus">
-                                <asp:LinkButton OnClick="AddToCart_Click" runat="server" class="btn btn-primary btn-plus">
-                                    <i class="fa fa-plus"></i>
-                                </asp:LinkButton>
-                            </div>
-                        </div>
+                        
                         <asp:Button runat="server" OnClick="AddToCart_Click" Text="Add To Cart" class="btn btn-primary px-3"/>
                     </div>
                     <div class="d-flex pt-2">

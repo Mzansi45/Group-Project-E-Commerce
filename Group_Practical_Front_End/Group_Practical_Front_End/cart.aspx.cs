@@ -54,14 +54,15 @@ namespace Group_Practical_Front_End
                         }
 
                         int index = list[x].IndexOf('(');
-                        if (index < 0)
+                        if (index <= 0)
                         {
                             cart_items.InnerHtml = "";
                             return;
                         }
 
-                        int l = list[x].Length;
-                        list[x] = list[x].Remove(index, l - 1);
+                        int number = list[x].Length -1;
+                        number = number - 1;
+                        list[x] = list[x].Remove(index, number);
                         productId.Add(Convert.ToInt32(list[x]));
                     }
 
@@ -126,8 +127,8 @@ namespace Group_Practical_Front_End
                     {
                         //get product Id and add it to the list of IDs
                         int index = list[x].IndexOf('(');
-                        int l = list[x].Length;
-                        if(index<0)
+
+                        if (index<0)
                         {
                             Session["cart"] = "";
                             cart_items.InnerHtml = "";
@@ -135,8 +136,11 @@ namespace Group_Practical_Front_End
                         }
                         else
                         {
-                            list[x] = list[x].Remove(index, l - 1); //flasgs an error when removing
-                        }  
+                            int number = list[x].Length - 1;
+                            number = number - 1;
+                            list[x] = list[x].Remove(index, number); //flasgs an error when removing
+                        }
+                        
                         productId.Add(Convert.ToInt32(list[x]));
                     }
 

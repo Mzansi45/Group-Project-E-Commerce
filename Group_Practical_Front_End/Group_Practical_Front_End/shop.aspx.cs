@@ -15,39 +15,103 @@ namespace Group_Practical_Front_End
        
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["category"]!=null)
+            if (Session["LoggedIn"]!=null)
             {
-                string category = Request.QueryString["category"];
-                if(category.Equals("discount"))
+                if (Session["UserType"].ToString().Equals("Seller"))
                 {
-                    //filter by discounted products
-                    filterByDiscount();
-                }else 
-                {
-                    filterByCategory(Request.QueryString["category"]);
+
+                    List<Product> list = new List<Product>();
+
+                    dynamic prods = sv.getProducts().ToList();
+
+
+                    foreach (dynamic item in prods)
+                    {
+                        list.Add(item);
+                    }
+
+                    productsSection.InnerHtml = "";
+                    foreach (Product prod in list)
+                    {
+                        if (prod.Seller_ID == Convert.ToInt32(Session["UserID"].ToString()))
+                        {
+                           display(prod);
+                        }
+                    }
                 }
-               
+                else
+                {
+                    if (Request.QueryString["category"] != null)
+                    {
+                        string category = Request.QueryString["category"];
+                        if (category.Equals("discount"))
+                        {
+                            //filter by discounted products
+                            filterByDiscount();
+                        }
+                        else
+                        {
+                            filterByCategory(Request.QueryString["category"]);
+                        }
+
+                    }
+                    else
+                    {
+                        buttonHighights();
+
+                        List<Product> list = new List<Product>();
+
+                        dynamic prods = sv.getProducts().ToList();
+
+                        foreach (dynamic item in prods)
+                        {
+                            list.Add(item);
+                        }
+
+                        productsSection.InnerHtml = "";
+                        foreach (Product prod in list)
+                        {
+                            display(prod);
+                        }
+                    }
+                }
             }
             else
             {
-                buttonHighights();
-
-                List<Product> list = new List<Product>();
-
-                dynamic prods = sv.getProducts().ToList();
-
-
-                foreach (dynamic item in prods)
+                if (Request.QueryString["category"] != null)
                 {
-                    list.Add(item);
+                    string category = Request.QueryString["category"];
+                    if (category.Equals("discount"))
+                    {
+                        //filter by discounted products
+                        filterByDiscount();
+                    }
+                    else
+                    {
+                        filterByCategory(Request.QueryString["category"]);
+                    }
                 }
-
-                productsSection.InnerHtml = "";
-                foreach (Product prod in list)
+                else
                 {
-                    display(prod);
+                    buttonHighights();
+
+                    List<Product> list = new List<Product>();
+
+                    dynamic prods = sv.getProducts().ToList();
+
+
+                    foreach (dynamic item in prods)
+                    {
+                        list.Add(item);
+                    }
+
+                    productsSection.InnerHtml = "";
+                    foreach (Product prod in list)
+                    {
+                        display(prod);
+                    }
                 }
-            }
+            }       
         }
 
         //@T gulube 219020988
@@ -67,8 +131,7 @@ namespace Group_Practical_Front_End
             foreach(Product prod in list)
             {
                 display(prod);
-            }
-            
+            }           
         }
 
         //@T gulube 219020988
@@ -134,7 +197,7 @@ namespace Group_Practical_Front_End
             R300.BackColor = Color.LightGray;
             R200.BackColor = Color.Yellow;
             R100.BackColor = Color.LightGray;
-            all_colors.BackColor = Color.LightGray;
+            price_all.BackColor = Color.LightGray;
             filterByPrice(200);
         }
         //@T gulube 219020988
@@ -145,7 +208,7 @@ namespace Group_Practical_Front_End
             R300.BackColor = Color.LightGray;
             R200.BackColor = Color.LightGray;
             R100.BackColor = Color.Yellow;
-            all_colors.BackColor = Color.LightGray;
+            price_all.BackColor = Color.LightGray;
             filterByPrice(100);
         }
 
@@ -306,7 +369,7 @@ namespace Group_Practical_Front_End
         //pass a product and its is the displayed to shop
         public void display(Product prod)
         {       
-            productsSection.InnerHtml += "<div class='col-lg-4 col-md-6 col-sm-6 pb-1'>";
+            productsSection.InnerHtml += "<div class='col-lg-3 col-md-5 col-sm-6 pb-1'>";
             productsSection.InnerHtml += "<div class='product-item bg-light mb-4'>";
             productsSection.InnerHtml += "<div class='product-img position-relative overflow-hidden'>";
             productsSection.InnerHtml += "<a href='single.aspx?Id="+prod.Id+"'><img class='img-fluid w-100' src=" + prod.Image + " alt=''></a>";
