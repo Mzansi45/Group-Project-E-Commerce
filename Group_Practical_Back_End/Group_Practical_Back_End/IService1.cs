@@ -24,6 +24,9 @@ namespace Group_Practical_Back_End
         int getUserID(string username, string password);
 
         [OperationContract]
+        int getSellerId(string username, string password);
+
+        [OperationContract]
         Product getProductByID(int Id);
 
         [OperationContract]
@@ -36,14 +39,22 @@ namespace Group_Practical_Back_End
         bool addProduct(Product product);
 
         [OperationContract]
-<<<<<<< HEAD
-        bool editProduct(Product product, string userName, string passWord);
-=======
-        bool editProduct(string username, string password, Product product);
->>>>>>> 3991052236d284178aae8b68a1d923ea8e127e0b
+        bool editProduct(Product prod);
+
+        [OperationContract]
+        bool updateProduct(Product product);
+
+        [OperationContract]
+        Product getProduct(string prodName);
+
+        [OperationContract]
+        Product getProductById(int prodID);
 
         [OperationContract]
         bool addSeller(Seller seller);
+
+        [OperationContract]
+        Seller gettingSellerByID(int Id);
 
         [OperationContract]
         bool searchSeller(string username, string password);
@@ -56,5 +67,104 @@ namespace Group_Practical_Back_End
 
         [OperationContract]
         bool searchProduct(string productName, string productCategory, string productManufacturer);
+
+        [OperationContract]
+        bool setUserActive(int userId, DateTime date);
+
+        [OperationContract]
+        bool setSellerActive(int sellerId, DateTime date);
+
+        [OperationContract]
+        Employee getEmployeeByID(int Id);
+
+        [OperationContract]
+        bool addEmployee(Employee employee);
+
+        [OperationContract]
+        bool searchEmployee(string username, string password);
+
+        [OperationContract]
+        int getEmployeeID(string username, string password);
+
+        [OperationContract]
+        bool addQuery(Query query);
+
+        [OperationContract]
+        List<Query> GetQueries();
+
+        [OperationContract]
+        bool markQueryRead(Query query);
+
+        [OperationContract]
+        Query GetQueryByID(int Id);
+
+        [OperationContract]
+        bool deleteCart(int UserId);
+
+        [OperationContract]
+        List<Invoice> GetInvoices();
+
+        [OperationContract]
+        Invoice GetInvoiceByID(int ID);
+
+        [OperationContract]
+        int addInvoice(Invoice invoice);
+
+        [OperationContract]
+        Invoice GetInvoiceByUserID(int Id);
+
+        [OperationContract]
+        bool EditPassword(int userId, string newPassword);
+
+        [OperationContract]
+        int getUserIdByEmail(string username,string email);
+
+        [OperationContract]
+        bool addToWishList(int userId, int productId);
+
+        [OperationContract]
+        bool removeFromWishList(int userId, int productId);
+
+        [OperationContract]
+        bool addCoupon(Coupon coupon);
+
+        [OperationContract]
+        bool deleteCoupon(string couponValue);
+
+        [OperationContract]
+        bool addCouponValue(int couponId,string value);
+
+        [OperationContract]
+        int getCouponId(int customerId, DateTime creationTime);
+
+        [OperationContract]
+        bool ValidateCouponById(int id);
+
+        [OperationContract]
+        decimal GetCouponPrice(int id);
+
+        [OperationContract]
+        void onGet();
+
+        [OperationContract]
+        List<Product> getProductReport();
+
+        [OperationContract]
+        List<Seller> getSellerReport();
+
+        [OperationContract]
+        bool addEmployeee(string employeeName, string surname, string employee_Type, string email, string password, string userName);
+
+        [OperationContract]
+        bool editUser(User prod);
+
+        [OperationContract]
+        bool editSellerDetails(Seller seller);
+
+        [OperationContract]
+        Employee gettingEmployeeByID(int Id);
+
+        [OperationContract]
+        bool editEmployeeDetails(Employee employee);
     }
 }
